@@ -1,0 +1,28 @@
+{
+    "planilha": {
+        "entrada": {
+            "posicao": 1,
+
+            "celula_nome": "F6",
+            "celula_processo": "X6",
+
+            "celula_dia": "I43",
+            "nome_combobox_mes": "Drop-down 726",
+            "celula_ano": "R43"
+        },
+        "cadastro": {
+            "posicao": 15,
+
+            "celula_x_dmtran": "B9",
+            "celula_x_transitar": "B11",
+
+            "celula_x_meire": "B23",
+            "celula_x_onilce": "B25"
+        }
+    },
+
+    "gerador": {
+        "gerar_candidato_reteste": false,
+        "sobrescrever_arquivos": true
+    }
+}

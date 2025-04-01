@@ -1,0 +1,9 @@
+**/planilha
+**/words
+
+**/__pycache__
+
+build
+dist
+
+**.spec
