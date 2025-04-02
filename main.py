@@ -13,6 +13,9 @@ from interface.gen_odt_button import GenOdtButton
 from interface.gen_odt_xlsm_button import GenOdtXlsmButton
 
 from interface.menu.config_menu import ConfigMenu
+from interface.tabs.gerar_arquivos import GerarArquivosTab
+from interface.tabs.imprimir_arquivos import ImprimirArquivosTab
+from interface.tabs.transformar_pdf import PdfizarArquivosTab
 
 def main():
 
@@ -33,8 +36,6 @@ def main():
 
     # TkInter
     root = Tk()
-    frame = ttk.Frame(root, padding=10)
-    frame.grid(sticky='nsew')
 
     # Icone
     if getattr(sys, 'frozen', False):
@@ -45,37 +46,28 @@ def main():
         icon_path = os.path.join(os.path.dirname(__file__), 'common/Nomina.ico')
 
     # Configurações da Janela
-    root.title('Nomina v1.3.0')
+    root.title('Nomina v1.4.0')
     root.iconbitmap(icon_path)
     # root.geometry("400x150")
-    root.maxsize(550, 500)
+    root.maxsize(550, 550)
     root.minsize(225, 100)
     root.columnconfigure(0, weight=1)
     root.rowconfigure(0, weight=1)
 
     # Widgets da Janela
     menu_master = Menu(root)
-
-    file_select = FileSelect(frame)
-    clinic_radios = ClinicSelect(frame)
-    psy_radios = PsychoSelect(frame)
-    date_select = DateSelect(frame)
-
-    gen_button = GenButton(frame, file_select, clinic_radios, psy_radios, date_select)
-    odt_gen_button = GenOdtButton(frame, file_select, clinic_radios, psy_radios, date_select)
-    plan_odt_button = GenOdtXlsmButton(root, frame, file_select, clinic_radios, psy_radios, date_select, gen_button, odt_gen_button)
-
-    # Renders
-    file_select.render()
-    clinic_radios.render()
-    psy_radios.render()
-    date_select.render()
-
-    ttk.Separator(frame, orient='horizontal').grid(row=98, sticky='ew', columnspan=2, padx=5, pady=5)
-
-    gen_button.render()
-    odt_gen_button.render()
-    plan_odt_button.render()
+    
+    # Tabs
+    tab_control = ttk.Notebook(root)
+    tab_control.grid(row=0, column=0, sticky='nsew')
+    
+    tab1 = GerarArquivosTab(root=root, master=tab_control).get_frame()
+    tab2 = ImprimirArquivosTab(root, tab_control).get_frame()
+    tab3 = PdfizarArquivosTab(root, tab_control).get_frame()
+    
+    tab_control.add(tab1, text="Gerar")
+    tab_control.add(tab2, text="Imprimir")
+    tab_control.add(tab3, text="Transformar PDF")
 
     # Configs dos menus
     menu_master.add_cascade(label='Configurações', menu=ConfigMenu(menu_master).render())
