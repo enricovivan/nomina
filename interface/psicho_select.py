@@ -15,7 +15,7 @@ class PsychoSelect:
         )
         radio_meire = ttk.Radiobutton(
             self.frame, 
-            text='Mire', 
+            text='Meire', 
             variable=self.psycho_value,
             value='meire',
         )
@@ -28,7 +28,7 @@ class PsychoSelect:
 
         # Packs
         label.grid(
-            row=4,
+            row=6,
             column=0,
             columnspan=2,
             sticky='ew',
@@ -37,7 +37,7 @@ class PsychoSelect:
         )
 
         radio_meire.grid(
-            row=5,
+            row=7,
             column=0,
             sticky='w',
             padx=5,
@@ -45,7 +45,7 @@ class PsychoSelect:
         )
 
         radio_onilce.grid(
-            row=5,
+            row=7,
             column=1,
             sticky='e',
             padx=5,

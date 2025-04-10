@@ -22,7 +22,7 @@ class DateSelect:
 
         # Packs
         label.grid(
-            row=6,
+            row=8,
             column=0,
             columnspan=2,
             sticky='ew',
@@ -31,7 +31,7 @@ class DateSelect:
         )
 
         self.date.grid(
-            row=7,
+            row=9,
             columnspan=2,
             sticky='ew',
             padx=5,

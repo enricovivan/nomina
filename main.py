@@ -21,6 +21,7 @@ def main():
 
     # Configurações do windows para não ficar embaçado em 125% de zoom
     # Esse bloco é específico para Windows
+    # Aliás, esse programa só funciona no windows, vlw é nós 😎
     if sys.platform == "win32":
         try:
         # Para Windows 8.1 ou superior
@@ -46,10 +47,10 @@ def main():
         icon_path = os.path.join(os.path.dirname(__file__), 'common/Nomina.ico')
 
     # Configurações da Janela
-    root.title('Nomina v1.4.0')
+    root.title('Nomina v1.4.1')
     root.iconbitmap(icon_path)
     # root.geometry("400x150")
-    root.maxsize(550, 550)
+    root.maxsize(550, 700)
     root.minsize(225, 100)
     root.columnconfigure(0, weight=1)
     root.rowconfigure(0, weight=1)

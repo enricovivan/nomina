@@ -1,5 +1,6 @@
 from tkinter import ttk, filedialog, messagebox, Tk
 
+from interface.pdf_format_select import PdfFormatSelect
 from modules.load_config import LoadConfig
 from modules.pdf_data import PdfData
 from modules.get_fist_file_from_folder import GetFirstFileFromFolder
@@ -18,12 +19,14 @@ class GenButton:
     def __init__(
         self,
         frame: ttk.Frame, 
+        pdf_type_instance: PdfFormatSelect,
         file_select_instance: FileSelect, 
         radio_clinic_instance: ClinicSelect, 
         radio_psycho_instance: PsychoSelect,
-        date_select_instance: DateSelect 
+        date_select_instance: DateSelect
     ):
         self.frame = frame
+        self.pdf_type = pdf_type_instance
         self.file_select = file_select_instance
         self.clinic_select = radio_clinic_instance
         self.psy_select = radio_psycho_instance
@@ -96,7 +99,7 @@ class GenButton:
             return
 
         # Pega os dados do pdf
-        doc_data = PdfData(self.file_select.get_file_path_entry())
+        doc_data = PdfData(self.file_select.get_file_path_entry(), self.pdf_type.get_selected())
         print(doc_data.get_pdf_data())
 
         print(f'Gerando planilhas no caminho: {save_folder}')

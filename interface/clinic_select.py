@@ -29,7 +29,7 @@ class ClinicSelect:
 
         # Packs
         clinica_label.grid(
-            row=2,
+            row=4,
             column=0,
             columnspan=2,
             sticky='ew',
@@ -37,14 +37,14 @@ class ClinicSelect:
             pady=5
         )
         radio_transitar.grid(
-            row=3,
+            row=5,
             column=0,
             sticky='w',
             padx=5,
             pady=5
         )
         radio_dmtran.grid(
-            row=3,
+            row=5,
             column=1,
             sticky='e',
             padx=5,
